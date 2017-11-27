@@ -1,16 +1,16 @@
 package seccareccir1.com.whowon;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import java.io.InputStream;
+
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.io.IOException;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize the recycler view
-        RecyclerView awardList = (RecyclerView) findViewById(R.id.award_list);
+        RecyclerView awardList = findViewById(R.id.award_list);
         awardList.setHasFixedSize(true);
 
         // Create the linear layout manager for the recycler view
@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         String line = "";
         try {
             while ((line =reader.readLine()) != null) {
-                //set splitter
                 String[] tokens = line.split(",");
                 awardList.add(new Award(tokens[0],tokens[1],tokens[2]));
             }
